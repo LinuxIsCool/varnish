@@ -1612,8 +1612,8 @@ with varnish... would make code cleaner, but merges harder */
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: 'tnum';
 @font-size-base: @v-typography-body-font-size;
-@font-size-lg: @font-size-base + (@pxToRem * 2);
-@font-size-sm: @font-size-base - (@pxToRem * 2);
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: @font-size-base - 2px;
 @heading-1-size: @v-typography-h1-font-size;
 @heading-2-size: @v-typography-h2-font-size;
 @heading-3-size: @v-typography-h3-font-size;
@@ -1750,7 +1750,7 @@ with varnish... would make code cleaner, but merges harder */
 @btn-padding-horizontal-lg: @btn-padding-horizontal-base;
 @btn-padding-horizontal-sm: @padding-xs - 1px;
 
-@btn-height-base: 1px * (@remToPx * @font-size-base) * @line-height-base +
+@btn-height-base: 1px * @font-size-base * @line-height-base +
   (2 * (@v-button-default-padding-vertical + @btn-border-width));
 @btn-height-lg: @btn-height-base + @v-spacing-xs;
 @btn-height-sm: @btn-height-base - @v-spacing-xs;
@@ -1762,9 +1762,9 @@ with varnish... would make code cleaner, but merges harder */
 @btn-square-size: @btn-height-base;
 @btn-square-size-lg: @btn-height-lg;
 @btn-square-size-sm: @btn-height-sm;
-@btn-square-only-icon-size: (@remToPx * @font-size-base) + 2px;
-@btn-square-only-icon-size-sm: (@remToPx * @font-size-base);
-@btn-square-only-icon-size-lg: (@remToPx * @font-size-base) + 2px;
+@btn-square-only-icon-size: @font-size-base + 2px;
+@btn-square-only-icon-size-sm: @font-size-base;
+@btn-square-only-icon-size-lg: @font-size-base + 2px;
 
 @btn-group-border: @primary-5;
 
@@ -1920,23 +1920,22 @@ with varnish... would make code cleaner, but merges harder */
 @input-padding-horizontal-base: @input-padding-horizontal;
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
-@input-padding-vertical-base: 0px +
+@input-padding-vertical-base:
   max(
     (
-      round((@input-height-base - (@remToPx * @font-size-base) * @line-height-base) / 2 * 10) / 10 -
+      round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
         @border-width-base
     ),
     3
   );
-@input-padding-vertical-sm: 0px +
+@input-padding-vertical-sm:
   max(
-    round((@input-height-sm - (@remToPx * @font-size-base) * @line-height-base) / 2 * 10) / 10 -
+    round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 -
       @border-width-base,
     0
   );
-@input-padding-vertical-lg: 0px +
-  ceil((@input-height-lg - (@remToPx * @font-size-lg) * @line-height-base) / 2 * 10) / 10 -
-  @border-width-base;
+@input-padding-vertical-lg:
+  ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) / 10 - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
 @input-icon-color: @input-color;
@@ -2078,8 +2077,8 @@ with varnish... would make code cleaner, but merges harder */
 @menu-item-padding: 0 20px;
 @menu-horizontal-line-height: 46px;
 @menu-icon-margin-right: 10px;
-@menu-icon-size: (@remToPx * @font-size-base);
-@menu-icon-size-lg: (@remToPx * @font-size-lg);
+@menu-icon-size: @font-size-base;
+@menu-icon-size-lg: @font-size-lg;
 @menu-item-group-title-font-size: @menu-item-font-size;
 
 // dark theme
@@ -2228,7 +2227,7 @@ with varnish... would make code cleaner, but merges harder */
 @tabs-card-height: 40px;
 @tabs-card-active-color: @primary-color;
 @tabs-card-horizontal-padding: (
-    @tabs-card-height - floor((@remToPx * @font-size-base) * @line-height-base)
+    @tabs-card-height - floor(@font-size-base * @line-height-base)
   ) / 2 - @border-width-base @padding-md;
 @tabs-card-horizontal-padding-sm: 6px @padding-md;
 @tabs-title-font-size: @font-size-base;
@@ -2262,9 +2261,9 @@ with varnish... would make code cleaner, but merges harder */
 @avatar-size-base: 32px;
 @avatar-size-lg: 40px;
 @avatar-size-sm: 24px;
-@avatar-font-size-base: (@pxToRem * 18);
-@avatar-font-size-lg: (@pxToRem * 24);
-@avatar-font-size-sm: (@pxToRem * 14);
+@avatar-font-size-base: 18px;
+@avatar-font-size-lg: 24px;
+@avatar-font-size-sm: 14px;
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
@@ -2307,7 +2306,7 @@ with varnish... would make code cleaner, but merges harder */
 @page-header-ghost-bg: inherit;
 @page-header-heading-title: @heading-4-size;
 @page-header-heading-sub-title: 14px;
-@page-header-tabs-tab-font-size: (@pxToRem * 16);
+@page-header-tabs-tab-font-size: 16px;
 
 // Breadcrumb
 // ---
@@ -2412,8 +2411,7 @@ with varnish... would make code cleaner, but merges harder */
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
   @alert-with-description-no-icon-padding-vertical - 1px 64px;
-@alert-icon-top: 8px + (@remToPx * @font-size-base) * @line-height-base / 2 -
-  (@remToPx * @font-size-base) / 2;
+@alert-icon-top: 8px + @font-size-base * @line-height-base / 2 - @font-size-base / 2;
 @alert-with-description-icon-size: 24px;
 @alert-with-description-icon-top: @alert-with-description-padding-vertical;
 
@@ -2434,8 +2432,8 @@ with varnish... would make code cleaner, but merges harder */
 // Statistic
 // ---
 @statistic-title-font-size: @font-size-base;
-@statistic-content-font-size: (@pxToRem * 24);
-@statistic-unit-font-size: (@pxToRem * 16);
+@statistic-content-font-size: 24px;
+@statistic-unit-font-size: 16px;
 @statistic-font-family: @font-family;
 
 // Drawer
@@ -2474,7 +2472,7 @@ with varnish... would make code cleaner, but merges harder */
 @steps-icon-size: 32px;
 @steps-icon-custom-size: @steps-icon-size;
 @steps-icon-custom-top: 0px;
-@steps-icon-custom-font-size: (@pxToRem * 24);
+@steps-icon-custom-font-size: 24px;
 @steps-icon-top: -1px;
 @steps-icon-font-size: @font-size-lg;
 @steps-icon-margin: 0 8px 0 0;
@@ -2498,9 +2496,9 @@ with varnish... would make code cleaner, but merges harder */
 
 //  Result
 // ---
-@result-title-font-size: (@pxToRem * 24);
+@result-title-font-size: 24px;
 @result-subtitle-font-size: @font-size-base;
-@result-icon-font-size: (@pxToRem * 72);
+@result-icon-font-size: 72px;
 @result-extra-margin: 32px 0 0 0;
 
 // Varnish overrides
@@ -2920,77 +2918,77 @@ with varnish... would make code cleaner, but merges harder */
 @v-spacing-xl3: 64px;
 @v-spacing-xl4: 96px;
 @v-spacing-xl5: 128px;
-@v-typography-font-size: 1rem;
+@v-typography-font-size: 16px;
 @v-typography-font-family: Lato;
 @v-typography-font-weight-regular: 400;
 @v-typography-font-weight-bold: 700;
 @v-typography-headline-font-family: Lato;
 @v-typography-h1-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-h1-font-size: 2.875rem;
-@v-typography-h1-line-height: 3.125rem;
+@v-typography-h1-font-size: 46px;
+@v-typography-h1-line-height: 1.0869565217391304;
 @v-typography-h1-font-weight: 700;
 @v-typography-h2-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-h2-font-size: 2.25rem;
+@v-typography-h2-font-size: 36px;
 @v-typography-h2-line-height: 1.1111111111111112;
 @v-typography-h2-font-weight: 700;
 @v-typography-h3-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-h3-font-size: 1.875rem;
+@v-typography-h3-font-size: 30px;
 @v-typography-h3-line-height: 1.2;
 @v-typography-h3-font-weight: 700;
 @v-typography-h4-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-h4-font-size: 1.5rem;
+@v-typography-h4-font-size: 24px;
 @v-typography-h4-line-height: 1.1666666666666667;
 @v-typography-h4-font-weight: 700;
 @v-typography-h5-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-h5-font-size: 1.125rem;
+@v-typography-h5-font-size: 18px;
 @v-typography-h5-line-height: 1.2222222222222223;
 @v-typography-h5-font-weight: 700;
 @v-typography-h6-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-h6-font-size: 0.8125rem;
+@v-typography-h6-font-size: 13px;
 @v-typography-h6-line-height: 1.3846153846153846;
 @v-typography-h6-font-weight: 400;
 @v-typography-body-jumbo-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-body-jumbo-font-size: 1.5rem;
+@v-typography-body-jumbo-font-size: 24px;
 @v-typography-body-jumbo-line-height: 1.5;
 @v-typography-body-big-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-body-big-font-size: 1.125rem;
+@v-typography-body-big-font-size: 18px;
 @v-typography-body-big-line-height: 1.5;
 @v-typography-body-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-body-font-size: 1rem;
+@v-typography-body-font-size: 16px;
 @v-typography-body-line-height: 1.375;
 @v-typography-body-bold-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-body-bold-font-size: 1rem;
+@v-typography-body-bold-font-size: 16px;
 @v-typography-body-bold-line-height: 1.375;
 @v-typography-body-bold-font-weight: 700;
 @v-typography-body-small-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-body-small-font-size: 0.875rem;
+@v-typography-body-small-font-size: 14px;
 @v-typography-body-small-line-height: 1.4285714285714286;
 @v-typography-body-small-bold-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-body-small-bold-font-size: 0.875rem;
+@v-typography-body-small-bold-font-size: 14px;
 @v-typography-body-small-bold-line-height: 1.4285714285714286;
 @v-typography-body-small-bold-font-weight: 700;
 @v-typography-body-micro-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-body-micro-font-size: 0.8125rem;
+@v-typography-body-micro-font-size: 13px;
 @v-typography-body-micro-line-height: 1.3846153846153846;
 @v-typography-notification-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-notification-font-size: 0.875rem;
+@v-typography-notification-font-size: 14px;
 @v-typography-notification-line-height: 1.2857142857142858;
 @v-typography-notification-bold-font-family: Lato, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-notification-bold-font-size: 0.875rem;
+@v-typography-notification-bold-font-size: 14px;
 @v-typography-notification-bold-line-height: 1.2857142857142858;
 @v-typography-notification-bold-font-weight: 700;
 @v-typography-attribution-font-family: Volkhov;
 @v-typography-quote-font-family: Volkhov, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-quote-font-size: 1.875rem;
+@v-typography-quote-font-size: 30px;
 @v-typography-quote-line-height: 1.4;
 @v-typography-quote-font-weight: 400;
 @v-typography-author-font-family: Volkhov, "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-@v-typography-author-font-size: 1.125rem;
+@v-typography-author-font-size: 18px;
 @v-typography-author-line-height: 2;
 @v-typography-code-font-family: Roboto Mono;
 @v-typography-code-font-family: Roboto Mono, SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
-@v-typography-code-font-size: 0.8125rem;
-@v-typography-code-line-height: 1.125rem;
+@v-typography-code-font-size: 13px;
+@v-typography-code-line-height: 1.3846153846153846;
 @v-typography-code-contrast-background-color: #303945;
 @v-typography-code-contrast-color: #D5DAE3;
 @v-typography-code-padding: 24px;
