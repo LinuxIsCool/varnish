@@ -2205,6 +2205,7 @@ with varnish... would make code cleaner, but merges harder */
   0 5px 12px 4px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-base;
 @card-head-tabs-margin-bottom: -17px;
+@card-head-extra-color: @text-color;
 
 // Comment
 // ---
@@ -2274,13 +2275,15 @@ with varnish... would make code cleaner, but merges harder */
 @switch-sm-height: 16px;
 @switch-min-width: 44px;
 @switch-sm-min-width: 28px;
-@switch-sm-checked-margin-left: -(@switch-sm-height - 3px);
 @switch-disabled-opacity: 0.4;
 @switch-color: @primary-color;
 @switch-bg: @component-background;
 @switch-shadow-color: fade(#00230b, 20%);
-@switch-inner-margin-min: 6px;
-@switch-inner-margin-max: 24px;
+@switch-padding: 2px;
+@switch-inner-margin-min: ceil(@switch-height * 0.3);
+@switch-inner-margin-max: ceil(@switch-height * 1.1);
+@switch-sm-inner-margin-min: ceil(@switch-sm-height * 0.3);
+@switch-sm-inner-margin-max: ceil(@switch-sm-height * 1.1);
 
 // Pagination
 // ---
@@ -6884,6 +6887,9 @@ tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover-start:last-child::afte
 .ant-picker-today-btn:active {
   color: #265ED4;
 }
+.ant-picker-today-btn.ant-picker-today-btn-disabled {
+  color: rgba(0, 0, 0, 0.25);
+}
 .ant-picker-year-panel .ant-picker-cell-range-hover-start::after,
 .ant-picker-quarter-panel .ant-picker-cell-range-hover-start::after,
 .ant-picker-month-panel .ant-picker-cell-range-hover-start::after {
@@ -8857,6 +8863,7 @@ tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover-start:last-child::afte
 }
 .ant-pagination-simple .ant-pagination-prev .ant-pagination-item-link,
 .ant-pagination-simple .ant-pagination-next .ant-pagination-item-link {
+  background-color: transparent;
   border: 0;
 }
 .ant-pagination-simple .ant-pagination-simple-pager input {
@@ -9664,30 +9671,13 @@ tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover-start:last-child::afte
 .ant-switch {
   color: #47515C;
   background-color: rgba(0, 0, 0, 0.25);
-  border: 1px solid transparent;
+  border: 0;
   border-radius: 100px;
 }
-.ant-switch-inner {
-  color: #FFFFFF;
-}
-.ant-switch-loading-icon,
-.ant-switch::after {
-  background-color: #fff;
-  border-radius: 18px;
-}
-.ant-switch::after {
-  box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
-}
-.ant-switch-loading-icon {
-  background: transparent;
-}
-.ant-switch-loading .ant-switch-loading-icon {
-  color: rgba(0, 0, 0, 0.65);
-}
-.ant-switch-checked.ant-switch-loading .ant-switch-loading-icon {
-  color: #1A4CAE;
-}
 .ant-switch:focus {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.ant-switch-checked:focus {
   box-shadow: 0 0 0 2px rgba(26, 76, 174, 0.2);
 }
 .ant-switch:focus:hover {
@@ -9695,6 +9685,24 @@ tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover-start:last-child::afte
 }
 .ant-switch-checked {
   background-color: #1A4CAE;
+}
+.ant-switch-loading *,
+.ant-switch-disabled * {
+  box-shadow: none;
+}
+.ant-switch-inner {
+  color: #FFFFFF;
+}
+.ant-switch-handle::before {
+  background-color: #fff;
+  border-radius: 9px;
+  box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+}
+.ant-switch-loading-icon {
+  color: rgba(0, 0, 0, 0.65);
+}
+.ant-switch-checked .ant-switch-loading-icon {
+  color: #1A4CAE;
 }
 .ant-table-small .ant-table-thead > tr > th {
   background-color: #F8F9FA;
