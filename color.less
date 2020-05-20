@@ -1770,6 +1770,7 @@ with varnish... would make code cleaner, but merges harder */
 @btn-group-border: @primary-5;
 
 @btn-link-ghost-color: @component-background;
+@btn-link-ghost-hover-color: @v-color-b2; // Added by Varnish
 
 // Checkbox
 @checkbox-size: 16px;
@@ -5328,9 +5329,11 @@ html {
   background: transparent;
 }
 .ant-btn-link:hover,
-.ant-btn-link:focus,
 .ant-btn-link:active {
   border-color: transparent;
+}
+.ant-btn-link:hover {
+  background: #D5EAFE;
 }
 .ant-btn-link-disabled,
 .ant-btn-link.disabled,
@@ -5671,7 +5674,7 @@ html {
 .ant-btn-dangerous.ant-btn-link:focus {
   color: #ff8e8a;
   background-color: transparent;
-  border-color: transparent;
+  border-color: #f75e5e;
 }
 .ant-btn-dangerous.ant-btn-link:hover > a:only-child,
 .ant-btn-dangerous.ant-btn-link:focus > a:only-child {
@@ -5681,10 +5684,21 @@ html {
 .ant-btn-dangerous.ant-btn-link:focus > a:only-child::after {
   background: transparent;
 }
+.ant-btn-dangerous.ant-btn-link:hover {
+  color: #ff8e8a;
+  background-color: #ffdfdb;
+  border-color: transparent;
+}
+.ant-btn-dangerous.ant-btn-link:hover > a:only-child {
+  color: currentColor;
+}
+.ant-btn-dangerous.ant-btn-link:hover > a:only-child::after {
+  background: transparent;
+}
 .ant-btn-dangerous.ant-btn-link:active {
   color: #d1454a;
   background-color: transparent;
-  border-color: transparent;
+  border-color: #f75e5e;
 }
 .ant-btn-dangerous.ant-btn-link:active > a:only-child {
   color: currentColor;
@@ -10076,6 +10090,65 @@ tr.ant-table-expanded-row:hover > td {
 .ant-tag-checkable:active {
   background-color: #1A4CAE;
 }
+.ant-tag.ant-tag-gray {
+  color: #616C7A;
+  background: #E8ECF2;
+}
+.ant-tag.ant-tag-magenta {
+  color: #802579;
+  background: #F6DFF3;
+  border: none;
+}
+.ant-tag.ant-tag-red {
+  color: #D63F3F;
+  background: #FFE1E0;
+  border: none;
+}
+.ant-tag.ant-tag-volcano {
+  color: #D63F3F;
+  background: #ffe5da;
+  border: none;
+}
+.ant-tag.ant-tag-orange {
+  color: #DD6502;
+  background: #FFE394;
+  border: none;
+}
+.ant-tag.ant-tag-gold {
+  color: #FF9100;
+  background: #FFF1C4;
+  border: none;
+}
+.ant-tag.ant-tag-lime {
+  color: #14A87D;
+  background: #d6f7c1;
+  border: none;
+}
+.ant-tag.ant-tag-green {
+  color: #0A8F6B;
+  background: #C1F7E6;
+  border: none;
+}
+.ant-tag.ant-tag-cyan {
+  color: #078E9E;
+  background: #C6F3F6;
+  border: none;
+}
+.ant-tag.ant-tag-blue {
+  color: #1A4CAE;
+  background: #D5EAFE;
+  border: none;
+}
+.ant-tag.ant-tag-geekblue {
+  color: #1B4596;
+  background: #e0ebff;
+  border: none;
+}
+.ant-tag.ant-tag-purple {
+  color: #5C50A4;
+  background: #E6E3F7;
+  border: none;
+}
 .ant-tag-pink {
   color: #887ADE;
   background: #f4f0ff;
@@ -10208,23 +10281,23 @@ tr.ant-table-expanded-row:hover > td {
 }
 .ant-tag-success {
   color: #1EC28E;
-  background: #f0fff8;
-  border-color: #92e8c4;
+  background: #E4FFF7;
+  border-color: #70DDBA;
 }
 .ant-tag-processing {
   color: #265ED4;
-  background: #f0f7ff;
-  border-color: #a5c8fa;
+  background: #F0F7FF;
+  border-color: #2F85F7;
 }
 .ant-tag-error {
   color: #F7605F;
-  background: #fff2f0;
-  border-color: #ffdfdb;
+  background: #FFF2F2;
+  border-color: #FF9F9E;
 }
 .ant-tag-warning {
   color: #FFBB00;
-  background: #fffce6;
-  border-color: #ffe97a;
+  background: #FFF9E8;
+  border-color: #FFD45D;
 }
 .ant-timeline {
   color: #47515C;
