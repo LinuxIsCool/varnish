@@ -14,7 +14,7 @@ title:
 Table pagination settings.
 
 ```jsx
-import { Table, Tag, Radio } from 'antd';
+import { Table, Tag, Radio } from '@allenai/varnish';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },

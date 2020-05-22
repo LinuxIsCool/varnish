@@ -9,7 +9,9 @@ title:
 Body and notification copy uses Lato Regular and Bold.
 
 ```jsx
-import { BodyJumbo, BodyBig, Body, BodyBold, BodySmall,BodySmallBold, BodyMicro, Notification, NotificationBold } from '..'; // TODO: point this at varnish
+import { Typography } from '@allenai/varnish';
+
+const { BodyJumbo, BodyBig, Body, BodyBold, BodySmall,BodySmallBold, BodyMicro, Notification, NotificationBold } = Typography;
 
 const text = "The best way to predict the future is to invent it";
 const text2 = "All your base are belong to us";

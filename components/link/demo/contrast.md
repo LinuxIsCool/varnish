@@ -8,11 +8,11 @@ To use contrast style, make a styled component using `contrastLinkColorStyles`.
 
 ```jsx
 import styled from 'styled-components';
-import { contrastLinkColorStyles } from '..'; // TODO: point this at varnish
+import { Link } from '@allenai/varnish';
 
 const Contrast = styled.div`
   a[href] {
-    ${contrastLinkColorStyles()};
+    ${Link.contrastLinkColorStyles()};
   }
 
   background: #1B4596;

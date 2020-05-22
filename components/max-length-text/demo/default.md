@@ -7,7 +7,7 @@ title:
 Simplest Usage.
 
 ```jsx
-import { MaxLengthText } from '..'; // TODO: point this at varnish
+import MaxLengthText from '..'; // TODO: put back after deploy // import { MaxLengthText } from '@allenai/varnish';
 
 ReactDOM.render(
   <MaxLengthText>

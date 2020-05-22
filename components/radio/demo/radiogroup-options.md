@@ -14,7 +14,7 @@ title:
 Render radios by configuring `options`.
 
 ```jsx
-import { Radio } from 'antd';
+import { Radio } from '@allenai/varnish';
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const options = [

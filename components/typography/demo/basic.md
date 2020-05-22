@@ -16,7 +16,7 @@ Display the document sample.
 Warning:  Typography.Title and Typography.Paragraph are not recommended for use.  Instead, we recommend you use standard dom elements; p for paragraph and h1...h6 for titles.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography } from '@allenai/varnish';
 
 const { Title, Paragraph, Text } = Typography;
 

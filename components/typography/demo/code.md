@@ -9,7 +9,9 @@ title:
 Code examples use Roboto Mono.
 
 ```jsx
-import { InlineCode, Code } from '..'; // TODO: point this at varnish
+import { Typography } from '@allenai/varnish';
+
+const { InlineCode, Code } = Typography;
 
 ReactDOM.render(
   <div>

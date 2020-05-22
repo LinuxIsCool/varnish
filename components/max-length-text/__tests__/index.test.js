@@ -3,7 +3,7 @@ import { render } from 'enzyme';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-import { MaxLengthText } from '..';
+import MaxLengthText from '..';
 
 describe('MaxLengthText', () => {
   mountTest(MaxLengthText);

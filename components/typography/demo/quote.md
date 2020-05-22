@@ -9,7 +9,9 @@ title:
 Quotes and their authors use Volkhov Regular
 
 ```jsx
-import { Quote, Author } from '..'; // TODO: point this at varnish
+import { Typography } from '@allenai/varnish';
+
+const { Quote, Author } = Typography;
 
 ReactDOM.render(
   <div>

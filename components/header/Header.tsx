@@ -2,7 +2,7 @@ import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import styled from 'styled-components';
 
-import { Columns } from '../columns';
+import Columns from '../columns';
 import Layout, { AppLayoutContext } from '../layout';
 
 import { AI2Banner } from './AI2Banner';
@@ -18,7 +18,7 @@ interface State {
   currentHeaderHeight: number;
 }
 
-export class Header extends React.PureComponent<Props, State> {
+export default class Header extends React.PureComponent<Props, State> {
   private container: React.Component | null = null;
 
   private banner: React.RefObject<HTMLDivElement>;

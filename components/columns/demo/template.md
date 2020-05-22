@@ -7,8 +7,7 @@ title:
 Specify `gridTemplateColumns` to specify number and size of columns.
 
 ```jsx
-import { Columns } from '..'; // TODO: point this at varnish
-import Skeleton from '../../skeleton'; // TODO: point this at varnish
+import { Columns, Skeleton } from '@allenai/varnish';
 
 ReactDOM.render(
    <div>

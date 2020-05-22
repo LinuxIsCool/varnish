@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MaxLengthText } from '..';
+import MaxLengthText from '..';
 
 describe('MaxLengthText.typescript', () => {
   it('Max Length Text Basic', () => {

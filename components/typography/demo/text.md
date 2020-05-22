@@ -14,7 +14,7 @@ title:
 Provides multiple types of text.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography } from '@allenai/varnish';
 
 const { Text } = Typography;
 const text = "The best way to predict the future is to invent it";

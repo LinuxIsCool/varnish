@@ -1,8 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { BodyJumbo, Body, BodyMicro } from '../../../../components/typography';
-import { Theme, Color } from '../../../../components/varnish';
+import Typography from '../../../../components/typography';
+import Theming from '../../../../components/varnish';
 import { dictionaryToArray } from '../../../../components/_util/varnish/base';
+
+const { Theme, Color } = Theming;
+const { BodyJumbo, Body, BodyMicro } = Typography;
 
 const DefaultTheme = Theme.default;
 const { color, chartingColor } = DefaultTheme;
@@ -119,7 +122,6 @@ const colorGroups: { [k: string]: Color[] } = {
     charting: dictionaryToArray(chartingColor),
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export class PrimaryColorDisplay extends React.PureComponent {
     render() {
         return (

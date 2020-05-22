@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Spacing } from '../../../../components/varnish/spacing';
 import { breakpoints } from '../../../../components/varnish/breakpoints';
 
-// eslint-disable-next-line import/prefer-default-export
 export class BreakpointDisplay extends React.PureComponent {
     render() {
         return (

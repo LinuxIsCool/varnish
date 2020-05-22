@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { AI2Logo, AllenNLP, Aristo, Mosaic, Prior, SemanticScholar, Fairness, Incubator } from '..';
+import Logos from '..';
+
+const { AI2Logo, AllenNLP, Aristo, Mosaic, Prior, SemanticScholar, Fairness, Incubator } = Logos;
 
 describe('Logos.typescript', () => {
   it('AI2Logo', () => {

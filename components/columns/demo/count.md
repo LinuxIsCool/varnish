@@ -7,8 +7,7 @@ title:
 Specify `count` to set number of equal columns.
 
 ```jsx
-import { Columns } from '..'; // TODO: point this at varnish
-import Skeleton from '../../skeleton'; // TODO: point this at varnish
+import { Columns, Skeleton } from '@allenai/varnish';
 
 ReactDOM.render(
    <div>

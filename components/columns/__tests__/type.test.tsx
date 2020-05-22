@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Columns } from '..';
+import Columns from '..';
 
 describe('Columns.typescript', () => {
   it('Columns', () => {

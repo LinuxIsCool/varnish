@@ -10,3 +10,8 @@ export const FormDropdownIcon = () => { return (
 export const FormCalendarIcon = () => { return (
   <Icon className="no-pointer-events" component={() => <img src={formCalendarIconSrc} alt="" />} />
 )};
+
+export default {
+  FormDropdownIcon,
+  FormCalendarIcon,
+};

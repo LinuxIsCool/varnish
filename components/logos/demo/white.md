@@ -8,7 +8,9 @@ If you're using the logo against a dark background, you will want to set the
 component's `color` value to `white`.
 
 ```jsx
-import { AI2Logo } from '..'; // TODO: point this at varnish
+import { Logos } from '@allenai/varnish';
+
+const { AI2Logo } = Logos;
 
 ReactDOM.render(
   <div className="site-dark-wrapper">
