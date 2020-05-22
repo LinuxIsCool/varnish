@@ -8,6 +8,19 @@ export type TypographyProps = typeof OriginTypography & {
   Text: typeof Text;
   Title: typeof Title;
   Paragraph: typeof Paragraph;
+  BodyJumbo: typeof VarnishAdditions.BodyJumbo; // Added by Varnish
+  Body: typeof VarnishAdditions.Body;
+  BodyBig: typeof VarnishAdditions.BodyBig;
+  BodyBold: typeof VarnishAdditions.BodyBold;
+  BodySmall: typeof VarnishAdditions.BodySmall;
+  BodySmallBold: typeof VarnishAdditions.BodySmallBold;
+  BodyMicro: typeof VarnishAdditions.BodyMicro;
+  Notification: typeof VarnishAdditions.Notification;
+  NotificationBold: typeof VarnishAdditions.NotificationBold;
+  Quote: typeof VarnishAdditions.Quote;
+  Author: typeof VarnishAdditions.Author;
+  Code: typeof VarnishAdditions.Code;
+  InlineCode: typeof VarnishAdditions.InlineCode;
 };
 
 const Typography = OriginTypography as TypographyProps;

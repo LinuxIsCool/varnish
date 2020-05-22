@@ -1,10 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import Typography from '../../../../components/typography';
-import Theming from '../../../../components/varnish';
+import { Color } from '../../../../components/varnish/colors';
 import { palette } from '../../../../components/varnish/palette';
 
-const { Color } = Theming;
 const { Body, BodyMicro } = Typography;
 
 export class PrimaryPalette extends React.PureComponent {
